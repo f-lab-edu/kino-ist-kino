@@ -25,7 +25,7 @@
 
 
 ## :rocket: ERD 구조
-![image](https://user-images.githubusercontent.com/80187578/188137443-6c10c286-e37d-44a3-9793-568ada1e4dab.png)
+![image](https://user-images.githubusercontent.com/80187578/188140493-aa078d4e-dadc-485e-b7b9-3592f8132c87.png)
 
 
 https://dbdiagram.io/d/630f49e90911f91ba5062331
