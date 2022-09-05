@@ -1,4 +1,4 @@
-package com.flab.kinoistkino;
+package com.flab.KinoistKino;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
