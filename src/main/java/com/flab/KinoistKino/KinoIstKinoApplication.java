@@ -1,4 +1,4 @@
-package com.flab.KinoistKino;
+package com.flab.kinoistkino;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
