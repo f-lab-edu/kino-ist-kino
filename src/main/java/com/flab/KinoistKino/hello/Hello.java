@@ -1,4 +1,4 @@
-package com.flab.KinoistKino.hello;
+package com.flab.kinoistkino.hello;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Hello {
 
     @GetMapping("/hello")
-    public String Hello() {
+    public String hello() {
         return "Hello World";
     }
 }
