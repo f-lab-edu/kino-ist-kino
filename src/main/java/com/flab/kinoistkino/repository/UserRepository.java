@@ -5,6 +5,7 @@ import com.flab.kinoistkino.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Repository
@@ -18,4 +19,15 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     // select * from user where account = ? and email = ?
     Optional<User> findByAccountAndEmail(String account,String email);
+
+    Optional<User> findByAccountAndPassword(String account, String password);
+
+    boolean existsByAccount(String account);
+
+    boolean existsByAccountAndPassword(String account, String password);
+
+
+    @Transactional
+    void deleteByAccount(String account);
+
 }
