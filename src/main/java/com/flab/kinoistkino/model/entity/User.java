@@ -37,7 +37,8 @@ public class User {
     private String updatedBy;
 
     // 1 : N
-    @OneToMany(fetch = FetchType.LAZY , mappedBy = "user") // Review에 있는 user에 맵핑 시키겠다.
+    @OneToMany(fetch = FetchType.LAZY , mappedBy = "user", orphanRemoval = true) // Review에 있는 user에 맵핑 시키겠다.
+    // orphanRemoval=true로 설정해서, 외래키와 상관없이 삭제할 수 있도록했다.
     private List<Review> reviewList;
 
 }
