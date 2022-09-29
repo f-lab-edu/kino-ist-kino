@@ -6,6 +6,8 @@ import com.flab.kinoistkino.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/delete")
 public class DeleteController {
@@ -20,7 +22,7 @@ public class DeleteController {
 
 
     @DeleteMapping(path="{account}")
-    public void deleteUser(@PathVariable("account") String account, @RequestBody String password) {
-            userService.deleteUser(account,password);
+    public void deleteUser(@PathVariable("account") String account, @RequestBody Map<String, String> password) {
+            userService.deleteUser(account, password);
     }
 }
