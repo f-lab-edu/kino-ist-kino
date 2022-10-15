@@ -16,17 +16,23 @@ public class ReviewRepositoryTest extends KinoIstKinoApplicationTests {
 
     @Test
     public void create(){
-        Review review = new Review();
+        Review review = Review.builder()
+                .name("Jun4")
+                .content("즐거웠다.")
+                .rate(5.0F)
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .build();
 
         // 어떤 사람이
         //review.setUserId(11L);
         // 어떤 영화는 선택했는지에 대한 인덱스 ID 필요
         //review.setMovieId(2L);
-        review.setName("Jun");
+       /* review.setName("Jun");
         review.setContent("무서웠다.");
         review.setRate(5.0F);
         review.setCreatedAt(LocalDateTime.now());
-        review.setUpdatedAt(LocalDateTime.now());
+        review.setUpdatedAt(LocalDateTime.now());*/
 
         Review newReview = reviewRepository.save(review);
         Assertions.assertNotNull(newReview);
@@ -40,7 +46,6 @@ public class ReviewRepositoryTest extends KinoIstKinoApplicationTests {
         Optional<Review> review = reviewRepository.findById(id);
 
         Assertions.assertTrue(review.isPresent());
-
 
     }
 }

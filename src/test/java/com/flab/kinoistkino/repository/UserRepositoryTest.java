@@ -18,17 +18,15 @@ public class UserRepositoryTest extends KinoIstKinoApplicationTests {
 
 
     @Test
-    @Transactional
     public void create() {
 // 다른 프레임워크 사용 시 보통 String sql = insert into user (%s, %s, %d) value (account, email, age); 처럼 사용
-        User user = new User();
-        user.setAccount("TestUser00");
-        user.setPassword("1234qqQQ");
-        user.setName("J");
-        user.setEmail("Test@gmail.com");
-        user.setPhoneNumber("010-1111-1111");
-        user.setCreatedAt(LocalDateTime.now());
-        user.setCreatedBy("TestUser05");
+        User user = User.builder()
+                .account("Test2")
+                .password("11")
+                .name("jun")
+                .email("aaa@aaa.com")
+                .phoneNumber("111-1111-1111")
+                .build();
 
         User newUser = userRepository.save(user);
         System.out.println("newUser : "+newUser);
@@ -51,24 +49,23 @@ public class UserRepositoryTest extends KinoIstKinoApplicationTests {
 
     }
 
-    @Test
-    @Transactional
+/*    @Test
     public void update(){
-        Optional<User> user = userRepository.findById(8L);
+        Optional<User> user = userRepository.findById(1L);
 
         user.ifPresent(selectUser -> {
-            selectUser.setAccount("TUser08");
+            selectUser.setAccount("Tester2");
             selectUser.setUpdatedAt(LocalDateTime.now());
             selectUser.setUpdatedBy("update method()");
 
             userRepository.save(selectUser); // id를 지정했기 때문에 JPA가 신규가 아닌 update라고 인식한다.
         });
-    }
+    }*/
 
     @Test
     @Transactional // 쿼리가 실행되더라도 롤백되서 DB 정보는 그대로 있다. (Test용)
     public void delete(){
-        Optional<User> user = userRepository.findById(8L);
+        Optional<User> user = userRepository.findById(2L);
 
         Assertions.assertTrue(user.isPresent()); // 반드시 값이 있어야 하기 때문에 꼭 존재해야한다고 추가
 
@@ -76,7 +73,7 @@ public class UserRepositoryTest extends KinoIstKinoApplicationTests {
             userRepository.delete(selectUser);
         });
 
-        Optional<User> deleteUser = userRepository.findById(8L);
+        Optional<User> deleteUser = userRepository.findById(2L);
 
         Assertions.assertFalse(deleteUser.isPresent()); // 반드시 값이 없어야 하기 때문에 추가
         }
