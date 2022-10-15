@@ -19,8 +19,6 @@ public class DeleteController {
         this.userService = userService;
     }
 
-
-
     @DeleteMapping(path="{account}")
     public void deleteUser(@PathVariable("account") String account, @RequestBody Map<String, String> password) {
             userService.deleteUser(account, password);

@@ -1,6 +1,7 @@
 package com.flab.kinoistkino.controller;
 
 import com.flab.kinoistkino.model.SearchParam;
+import com.flab.kinoistkino.model.network.Header;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -23,10 +24,18 @@ public class GetController {
         System.out.println(searchParam.getName());
         System.out.println(searchParam.getEmail());
         System.out.println(searchParam.getPhoneNumber());
-        System.out.println(searchParam.getPage());
+        System.out.println(searchParam.getCreatedAt());
+        System.out.println(searchParam.getUpdatedAt());
+
 
         // {"account" : "", "email" : "", "page" : 0} 과 같이 json 형태로도 리턴
 
         return searchParam;
+    }
+
+    @GetMapping("/header")
+    public Header getHeader(){
+        // {"resultCode: "OK" , "description" : "OK"}
+        return Header.builder().resultCode("OK").description("OK").build();
     }
 }

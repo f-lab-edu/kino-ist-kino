@@ -1,16 +1,16 @@
 package com.flab.kinoistkino.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import org.springframework.util.Assert;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Data
+
+@Builder
+@Getter
+@RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @ToString(exclude = {"user","movie"})
 public class Review {
@@ -37,4 +37,20 @@ public class Review {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    @Builder
+    public Review(String name, String content, Float rate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        Assert.notNull(name, "name must not be null");
+        Assert.notNull(content, "content must not be null");
+        Assert.notNull(String.valueOf(rate), "rate must not be null");
+        Assert.hasText(String.valueOf(createdAt), "name must not be empty");
+        Assert.hasText(String.valueOf(updatedAt), "name must not be empty");
+
+        this.name = name;
+        this.content = content;
+        this.rate = rate;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
 }

@@ -17,14 +17,22 @@ public class MovieRepositoryTest extends KinoIstKinoApplicationTests {
     @Test
     public void create(){
 
-        Movie movie = new Movie();
-        movie.setTitle("스파이더맨");
+        Movie movie = Movie.builder()
+                .title("테스트3")
+                .releaseDate(LocalDateTime.now())
+                .overview("거미가 무섭다")
+                .rateAverage(5.0f)
+                .actor("테스트")
+                .genre("판타지")
+                .director("몰라")
+                .build();
+/*        movie.setTitle("스파이더맨");
         movie.setReleaseDate(LocalDateTime.now());
         movie.setOverview("거미가 무섭다");
         movie.setRateAverage(5.0f);
         movie.setActor("스파이더맨");
         movie.setGenre("판타지");
-        movie.setDirector("몰라");
+        movie.setDirector("몰라");*/
 
         Movie newMovie = movieRepository.save(movie);
         Assertions.assertNotNull(newMovie);
