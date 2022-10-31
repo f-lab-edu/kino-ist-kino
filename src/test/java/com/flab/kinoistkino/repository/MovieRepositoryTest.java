@@ -21,10 +21,8 @@ public class MovieRepositoryTest extends KinoIstKinoApplicationTests {
                 .title("테스트3")
                 .releaseDate(LocalDateTime.now())
                 .overview("거미가 무섭다")
-                .rateAverage(5.0f)
-                .actor("테스트")
-                .genre("판타지")
-                .director("몰라")
+                /*.rateAverage(5.0f)*/
+                .genres("판타지")
                 .build();
 /*        movie.setTitle("스파이더맨");
         movie.setReleaseDate(LocalDateTime.now());

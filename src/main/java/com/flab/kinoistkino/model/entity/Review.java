@@ -1,6 +1,7 @@
 package com.flab.kinoistkino.model.entity;
 
 import lombok.*;
+import lombok.experimental.Accessors;
 import org.springframework.util.Assert;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @ToString(exclude = {"user","movie"})
+@Accessors(chain = true)
 public class Review {
 
     @Id

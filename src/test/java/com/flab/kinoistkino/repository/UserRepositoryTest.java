@@ -53,7 +53,7 @@ public class UserRepositoryTest extends KinoIstKinoApplicationTests {
     public void update(){
         Optional<User> user = userRepository.findById(1L);
 
-        user.ifPresent(selectUser -> {
+        user.ifPresent( -> {
             selectUser.setAccount("Tester2");
             selectUser.setUpdatedAt(LocalDateTime.now());
             selectUser.setUpdatedBy("update method()");
