@@ -90,13 +90,14 @@ public class UserService implements CrudInterface<UserApiRequest , UserApiRespon
         byId.ifPresent(user ->{
             userRepository.save(request.getData().toEntity());
         });
-/*        .orElseGet()->Header.ERROR("데이터 없음");*/
+       /* .orElseGet()-> Header.ERROR("데이터 없음");*/
 
         return Header.OK();
     }
 
     @Override
     public Header delete(Long id) {
+
         return null;
     }
 
@@ -119,4 +120,3 @@ public class UserService implements CrudInterface<UserApiRequest , UserApiRespon
 
     }
 }
-

@@ -33,10 +33,12 @@ public class UserApiRequest {
     public User toEntity(){
         return User.builder()
                 .account(account)
+                .createdAt(LocalDateTime.now())
                 .password(password)
                 .name(name)
                 .email(email)
                 .phoneNumber(phoneNumber)
+                .updatedAt(LocalDateTime.now())
                 .build();
     }
 
